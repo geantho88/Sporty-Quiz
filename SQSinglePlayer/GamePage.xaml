@@ -1,0 +1,107 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SQSinglePlayer.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" BackKeyPress="PhoneApplicationPage_BackKeyPress">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="768"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Background="#FFC0DE9B" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="221*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="OfflineAd" HorizontalAlignment="Left" Height="86" Margin="0,577,0,0" Grid.Row="1" VerticalAlignment="Top" Width="480" Background="#FF08708F">
+                <Image HorizontalAlignment="Left" Height="96" Margin="372,-10,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.208,0.035" Source="/Resources/Images/mainpage-logo-ball.png" Stretch="Fill"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sporty Quiz Multiplayer" VerticalAlignment="Top" FontSize="31" Width="367" Margin="44,-5,0,0" TextAlignment="Center" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="44,36,0,0" TextWrapping="Wrap" Text="Παίξε κόντρα στους φίλους σου" VerticalAlignment="Top" Width="367" TextAlignment="Center" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="44,62                            ,0,-1" TextWrapping="Wrap" Text="έρχεται σύντομα...." VerticalAlignment="Top" Width="367" TextAlignment="Center" FontSize="16" Foreground="White"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="480" RenderTransformOrigin="-1.275,-0.59" Background="#FF088F43">
+                <!--<TextBlock TextWrapping="Wrap" Text="Sporty Quiz " TextAlignment="Center" FontSize="45" FontFamily="Comic Sans MS" Margin="0,0,0,-1" Foreground="White"/>-->
+                <TextBlock x:Name="devcorrect" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FF088F43"/>
+            </Grid>
+            <Border x:Name="Button2_Copy" Margin="10,80.667,10,332" Grid.Row="1">
+                <ScrollViewer x:Name="questiontextScroll">
+                    <TextBlock x:Name="QuestionText" Padding="10" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25" FontFamily="Comic Sans MS"/>
+                </ScrollViewer>
+            </Border>
+            <Border x:Name="Button1" Margin="0,355.667,247,199" Tap="Button1_Tap" Grid.Row="1">
+                <ScrollViewer x:Name="scr1" Foreground="White" BorderBrush="White" Margin="0,-2,0,0">
+                    <ScrollViewer.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="/Resources/Images/buttonreverse.png"/>
+                    </ScrollViewer.Background>
+                    <TextBlock x:Name="Answer1" Padding="5" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="21" Width="206" FontFamily="Comic Sans MS"/>
+                </ScrollViewer>
+            </Border>
+            <Border x:Name="Button2" Margin="247,347.667,0,207" Tap="Button2_Tap" Grid.Row="1">
+                <ScrollViewer x:Name="scr2" Foreground="White" BorderBrush="White" Margin="0,0,0,-2">
+                    <ScrollViewer.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="/Resources/Images/button.png"/>
+                    </ScrollViewer.Background>
+                    <TextBlock x:Name="Answer2" Padding="5" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="21" Width="204" FontFamily="Comic Sans MS"/>
+                </ScrollViewer>
+            </Border>
+            <Border x:Name="Button3" Margin="0,463.667,247,91" Tap="Button3_Tap" Grid.Row="1">
+                <ScrollViewer x:Name="scr3" Foreground="White" BorderBrush="White" Margin="0,-2,0,0">
+                    <ScrollViewer.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="/Resources/Images/buttonreverse.png"/>
+                    </ScrollViewer.Background>
+                    <TextBlock x:Name="Answer3" Padding="5" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="21" Width="179" FontFamily="Comic Sans MS"/>
+                </ScrollViewer>
+            </Border>
+            <Border x:Name="Button4" Margin="247,463.667,0,91" Tap="Button4_Tap" Grid.Row="1">
+                <Border.Background>
+                    <ImageBrush Stretch="Fill"/>
+                </Border.Background>
+                <ScrollViewer x:Name="scr4" Foreground="White" BorderBrush="White" Margin="0,-2,0,0">
+                    <ScrollViewer.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="/Resources/Images/button.png"/>
+                    </ScrollViewer.Background>
+                    <TextBlock x:Name="Answer4" Padding="5" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="21" Width="184" FontFamily="Comic Sans MS"/>
+                </ScrollViewer>
+            </Border>
+            <Image x:Name="TimerBackground" HorizontalAlignment="Left" Height="100" Margin="190,409.667,0,0" VerticalAlignment="Top" Width="99" Source="/Resources/Images/timercenter.png" Stretch="Fill" Grid.Row="1"/>
+            <TextBlock x:Name="ProgressBarText" HorizontalAlignment="Left" Margin="213,436.667,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="53" Height="49" FontSize="36" RenderTransformOrigin="1.448,0.52" FontFamily="Comic Sans MS" Foreground="White" TextAlignment="Center" Grid.Row="1"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="371,81,0,0" VerticalAlignment="Top" Width="99" Source="/Resources/Images/timercenter.png" Stretch="Fill" Grid.RowSpan="2"/>
+            <TextBlock x:Name="questioncounter" HorizontalAlignment="Left" Margin="386,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Height="49" FontSize="40" RenderTransformOrigin="1.448,0.52" FontFamily="Comic Sans MS" TextAlignment="Center" Foreground="White" Grid.RowSpan="2"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="10,81,0,0" VerticalAlignment="Top" Width="99" Source="/Resources/Images/timercenter.png" Stretch="Fill" Grid.RowSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="33,0.667,0,0" TextWrapping="Wrap" Text="♥" VerticalAlignment="Top" Width="28" Height="49" FontSize="38" RenderTransformOrigin="1.448,0.52" FontFamily="Comic Sans MS" Grid.Row="1"/>
+            <TextBlock x:Name="LiveCounterText" HorizontalAlignment="Left" Margin="61,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" Height="37" FontSize="28" RenderTransformOrigin="1.448,0.52" FontFamily="Comic Sans MS" Foreground="White" Grid.Row="1"/>
+            <Grid x:Name="AdPanel" HorizontalAlignment="Left" Height="86" Margin="0,576.667,0,0" VerticalAlignment="Top" Width="480" Grid.Row="1"/>
+            <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="15" Margin="0,335.667,0,0" VerticalAlignment="Top" Width="480" Grid.Row="1"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="114,81,0,0" VerticalAlignment="Top" Width="99" Source="/Resources/Images/timercenter.png" Stretch="Fill" Grid.RowSpan="2"/>
+            <TextBlock x:Name="LevelCounterText" HorizontalAlignment="Left" Margin="138,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Height="37" FontSize="18" RenderTransformOrigin="1.448,0.52" FontFamily="Comic Sans MS" Foreground="White" Grid.Row="1"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="267,81,0,0" VerticalAlignment="Top" Width="99" Source="/Resources/Images/timercenter-warning.png" Stretch="Fill" Grid.RowSpan="2"/>
+            <Image x:Name="LevelCup" HorizontalAlignment="Left" Height="38" Margin="293,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="49" Stretch="Fill" Opacity="0.8"/>
+            <Image x:Name="LevelLabel" HorizontalAlignment="Left" Height="36.28" Margin="240.329,9.073,0,0" VerticalAlignment="Top" Width="145.202"  Stretch="Fill" RenderTransformOrigin="0.531,0.783" Grid.Row="1" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <Image.RenderTransform>
+                    <CompositeTransform Rotation="-23.794" TranslateX="3.162" TranslateY="-2.265"/>
+                </Image.RenderTransform>
+            </Image>
+            <!--<UI:AdControl ApplicationId="7c765fc1-7c40-402c-8668-4f86cfa6096c" AdUnitId="292119 " HorizontalAlignment="Left" Height="80" Margin="0,583,0,0" Grid.Row="1" VerticalAlignment="Top" Width="480" Latitude="0" Longitude="0"/>-->
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="116" Margin="95,0,0,0" VerticalAlignment="Top" Width="276" Source="/Resources/Images/newlogo2.png" Stretch="Fill" Grid.RowSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="99" Margin="327,0,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.208,0.035" Source="/Resources/Images/mainpage-logo-ball.png" Stretch="Fill" Grid.RowSpan="2"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SQSinglePlayer.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tool="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" BackKeyPress="PhoneApplicationPage_BackKeyPress">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28"/>
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.RowSpan="2" Background="#FFC0DE9B">
+            <Image HorizontalAlignment="Left" Height="124" Margin="177,496,0,0" VerticalAlignment="Top" Width="117" Source="/Resources/Images/timercenter.png" Stretch="UniformToFill" RenderTransformOrigin="0.399,-1.24"/>
+
+            <Image x:Name="SoundButton" HorizontalAlignment="Left" Height="124" Margin="177,94,0,0" VerticalAlignment="Top" Width="117" Source="/Resources/Images/timercenter.png" Stretch="UniformToFill" RenderTransformOrigin="0.399,-1.24" Tap="SoundButton_Tap"/>
+
+            <Grid HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="480" RenderTransformOrigin="-1.275,-0.59" Background="#FF088F43">
+                <!--<TextBlock TextWrapping="Wrap" Text="Ρυθμίσεις" TextAlignment="Center" FontSize="45" FontFamily="Comic Sans MS" Margin="0,0,0,-1" Foreground="White"/>-->
+                <Image HorizontalAlignment="Left" Height="34" Margin="338,10,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="-0.208,0.035" Source="/Resources/Images/settings48.png" Stretch="Fill"/>
+            </Grid>
+            <TextBlock x:Name="SoundLabel" HorizontalAlignment="Left" Margin="189,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.227,-1.794" Foreground="White" Height="44" Width="87" FontSize="30" FontFamily="Comic Sans MS" TextAlignment="Center" Tap="SoundLabel_Tap"/>
+            <TextBlock x:Name="QuestionsCountText" HorizontalAlignment="Left" Margin="10,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" Width="460" Height="37" RenderTransformOrigin="0.509,0.054" TextAlignment="Center" Foreground="#FF0B7BC9" FontFamily="Comic Sans MS" FontStyle="Italic" Tap="QuestionsCountText_Tap"/>
+            <Image x:Name="UpdateButton" HorizontalAlignment="Left" Height="124" Margin="177,287,0,0" VerticalAlignment="Top" Width="117" Source="/Resources/Images/timercenter.png" Stretch="UniformToFill" RenderTransformOrigin="0.399,-1.24"/>
+            <TextBlock x:Name="UpdateLabel" HorizontalAlignment="Left" Margin="189,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.227,-1.794" Foreground="White" Height="44" Width="87" FontSize="30" FontFamily="Comic Sans MS" TextAlignment="Center" Tap="UpdateLabel_Tap"/>
+            <Image x:Name="DownloadQuestionsButton" HorizontalAlignment="Left" Height="49" Margin="211,537,0,0" VerticalAlignment="Top" Width="50" Source="/Resources/Images/download164.png" Tap="DownloadQuestionsButton_Tap"/>
+            <Image x:Name="UpdateButton_Copy" HorizontalAlignment="Left" Height="41" Margin="122,223,0,0" VerticalAlignment="Top" Width="222" Source="/Resources/Images/soundsettingslabel.png" Stretch="Fill" RenderTransformOrigin="0.399,-1.24"/>
+            <Image x:Name="UpdateButton_Copy1" HorizontalAlignment="Left" Height="51" Margin="99,416,0,0" VerticalAlignment="Top" Width="273" Source="/Resources/Images/autosyncsettings.png" Stretch="Fill" RenderTransformOrigin="0.399,-1.24"/>
+            <Image x:Name="UpdateButton_Copy2" HorizontalAlignment="Left" Height="45" Margin="99,620,0,0" VerticalAlignment="Top" Width="273" Source="/Resources/Images/SyncQuestionsSettingsLabel.png" Stretch="Fill" RenderTransformOrigin="0.399,-1.24"/>
+
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="61" Margin="155,10,0,0" VerticalAlignment="Top" Width="177" Source="/Resources/Images/settingslabel.png" Stretch="Fill"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

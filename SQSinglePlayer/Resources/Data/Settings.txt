@@ -1,0 +1,1 @@
+﻿{"SoundEnabled":true,"AutoSyncEnabled":false,"AppRated":false,"Level":"1","CorrectAnswers":"0","WrongAnswers":"0","Lives":"5","CurrectQuestion":"1"}
